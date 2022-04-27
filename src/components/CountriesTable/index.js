@@ -33,12 +33,12 @@ export function CountriesTable({countries}){
 
             
                 if( value === "name") {
-                    const sorted = [...orderCountries].sort((a, b) =>b.name.common.localeCompare(b.name.common));
+                    const sorted = [...orderCountries].sort((a, b) =>b.name.common.localeCompare(a.name.common));
                     setOrderCountries(sorted);
                 
                 } else {
                     const sorted = [...orderCountries].sort((a,b) =>
-                    (a[value] === b[value] ? 0 : a[value] === undefined ? -1 : b === undefined ? -1 : a[value] > b[value] ? 1 : -1))
+                    (a[value] === b[value] ? 0 : a[value] === undefined ? -1 : b === undefined ? -1 : a[value] < b[value] ? 1 : -1))
                     setOrderCountries(sorted);
                 }
                 setActive(value);
